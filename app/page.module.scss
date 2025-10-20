@@ -1,1 +1,27 @@
+.header {
+  margin: 0 auto;
+  min-height: 338px;
+  background-image:
+    linear-gradient(180deg, #0000001e 0%, #292a2dea 100%),
+    url('/images/background.jpg');
+    filter: contrast(1.7);
+  background-size: cover;
+  background-position: center center;
+   display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header-container {
+        display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+    }
 
+@media only screen and (min-width: 768px) {
+    .header {
+        min-height: 707px;
+    }
+}

@@ -1,12 +1,18 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Red+Hat+Display:wght@400;500&display=swap');
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #292A2D;
+  --foreground: #E3E3E3;
+  --font-title: 'Poppins', Arial, Helvetica, sans-serif;
+  --font-navbar: 'Red Hat Display', Arial, Helvetica, sans-serif;
+  --font-paragraph: 'Red Hat Display', Arial, Helvetica, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #292A2D;
+    --foreground: #E3E3E3
   }
 }
 
@@ -19,9 +25,21 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-paragraph);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
+}
+
+.navbar a, .navbar li, .navbar ul {
+  font-family: var(--font-navbar);
+}
+
+p {
+  font-family: var(--font-paragraph);
 }
 
 * {
