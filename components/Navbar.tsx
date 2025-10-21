@@ -13,7 +13,7 @@ export default function Navbar() {
         </li>
         <li><Link href="/director">Réalisateurs</Link></li>
       </ul>
-      <img src="/images/avatar.webp" alt="Connexion" />
+      <img src="/images/avatar.webp" className={styles.avatar} alt="Connexion" />
     </div>
     </nav>
   );

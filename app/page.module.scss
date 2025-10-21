@@ -1,27 +1,67 @@
+.body {
+  min-height: 100vh;
+}
+
 .header {
   margin: 0 auto;
   min-height: 338px;
   background-image:
     linear-gradient(180deg, #0000001e 0%, #292a2dea 100%),
     url('/images/background.jpg');
-    filter: contrast(1.7);
+  filter: contrast(1.7);
   background-size: cover;
   background-position: center center;
-   display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.header-container {
-        display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1rem;
-    }
+  padding-top: 64px; /* Décale le header sous la navbar fixe */
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.button {
+  background: rgba(255, 255, 255, 0.466);
+  backdrop-filter: blur(5px) saturate(150%) brightness(200%) contrast(150%);
+  border: 1px solid rgb(0, 0, 0);
+  cursor: pointer;
+  color: var(--background);
+  box-shadow: 0 0px 20px rgb(0, 0, 0), inset 0 0 5px rgb(0, 0, 0);
+  width: 10rem;
+  height: 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 40px;
+  transition: background 0.3s ease-in, border 0.3s ease-in, box-shadow 0.3s ease-in, color 0.1s ease-in;
+}
+
+.button:hover {
+  background: transparent;
+  backdrop-filter: blur(3px) saturate(150%) brightness(110%);
+  box-shadow: 0 0px 20px rgba(0, 0, 0), inset 0 -2px 5px rgba(255, 255, 255, 0.158);
+  border: 1px solid rgba(255, 255, 255, 0.096);
+  color: white;
+  font-weight: 600;
+  transition: background 0.3s ease-out, border 0.3s ease-out, box-shadow 0.1s ease-out, color 0.1s ease-out;
+  letter-spacing: 0.2px;
+}
 
 @media only screen and (min-width: 768px) {
-    .header {
-        min-height: 707px;
-    }
+  .header {
+    min-height: 707px;
+  }
+
+  .button {
+    width: 232px;
+    height: 56px;
+    font-size: 1.2rem;
+    font-size: 20px;
+    font-weight: 700;
+  }
 }
