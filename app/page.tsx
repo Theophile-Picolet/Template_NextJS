@@ -1,6 +1,7 @@
 'use client';
 import styles from './page.module.scss';
 import { useState } from 'react';
+import Image from 'next/image';
 import Modal from '@/components/Modal';
 import LoginForm from '@/components/LoginForm';
 import RegisterForm from '@/components/RegisterForm';
@@ -19,9 +20,10 @@ export default function Home() {
         <LoginForm />
       </Modal>
       <Modal isOpen={showRegister} onClose={() => setShowRegister(false)}>
-        <RegisterForm/>
+        <RegisterForm />
       </Modal>
       <div className={styles.searchContainer}>
+        <Image src="/images/search.webp" className={styles.searchIcon} alt="recherche" width={40} height={40} />
         <input type="text" placeholder="Rechercher un film, un acteur..." className={styles.searchInput} />
       </div>
     </header>
