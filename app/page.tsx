@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Modal from '@/components/Modal';
 import LoginForm from '@/components/LoginForm';
 import RegisterForm from '@/components/RegisterForm';
+import MovieCard from '@/components/MovieCard';
 export default function Home() {
   const [showLogin, setShowLogin] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
@@ -28,8 +29,60 @@ export default function Home() {
       </div>
     </header>
     <main className={styles.main}>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h2>Les tendances</h2>
+      <div className={styles.movieList}>
+        <MovieCard
+          title="Titre du film"
+          genre="Genre du film"
+          posterUrl="/images/leParrain.webp"
+          id={1}
+        />
+        <MovieCard
+          title="Titre du film"
+          genre="Genre du film"
+          posterUrl="/images/peakyBlinder.webp"
+          id={2}
+        />
+        <MovieCard
+          title="Titre du film"
+          genre="Genre du film"
+          posterUrl="/images/readyPlayer.webp"
+          id={3}
+        />
+        <MovieCard
+          title="Titre du film"
+          genre="Genre du film"
+          posterUrl="/images/starWars.webp"
+          id={4}
+        />
+         <MovieCard
+          title="Titre du film"
+          genre="Genre du film"
+          posterUrl="/images/starWars.webp"
+          id={5}
+        />
+      </div>
     </main>
+    <footer className={styles.footer}>
+  <div className={styles.footerLinks}>
+    <ul>
+      <li>Accueil</li>
+      <li>Connexion</li>
+      <li>S’inscrire</li>
+      <li>A propos</li>
+    </ul>
+    <div className={styles.footerDivider}></div>
+    <ul>
+      <li>Accessibilité</li>
+      <li>Politique de confidentialité</li>
+      <li>Politique de gestion des cookies</li>
+      <li>Contrat d’utilisation</li>
+    </ul>
+  </div>
+  <div className={styles.footerCopyright}>
+    @ Brief2 & Tri-City Kings
+  </div>
+</footer>
     </body>
    
   );
