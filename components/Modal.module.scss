@@ -1,11 +1,12 @@
+
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 70vh;
   background: rgba(0, 0, 0, 0.1);
-  z-index: 200;
+  z-index: 50;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,8 +20,8 @@
   box-shadow: 0 2px 30px rgb(0, 0, 0), inset 0 2px 5px rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.041);
   backdrop-filter: blur(10px) saturate(120%);
-  padding: 2.5rem 2.5rem 2rem 2.5rem;
-  min-width: 400px;
+  padding: 1.5rem 2.5rem;
+  min-width: object-fit;
   max-width: 90vw;
   color: #ededed;
   position: relative;
@@ -35,95 +36,144 @@
   position: absolute;
   top: 0;
   right: 0;
-  padding: 0.5rem 1rem;
+  padding:0.5rem 1.5rem;
   background: none;
   border: none;
   color: #ededed;
   font-size: 2rem;
   border-radius: 0 20px 0 20px;
   cursor: pointer;
+  z-index: 10;
   &:hover {
     color: black;
-    background:  #e3e3e31f;
+    background:  #ffffff27;
   }
 }
 
 .modal h2 {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 700;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   text-align: center;
+  text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.6);
 }
 
 .modal label {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.6);
+  margin-left: 0.5rem;
 }
 
 .modal input {
   width: 100%;
-  padding: 1rem;
-  border-radius: 16px;
+  padding: 0.4rem;
   border: none;
-  margin-bottom: 2rem;
-  background: #fff;
+  margin-bottom: 0.5rem;
+  background: #ffffff;
   color: #222;
-  font-size: 1rem;
-  font-weight: 500;
-  outline: none;
-  //box-shadow: none;
-
-}
-
-.modal button[type='submit'] {
-  width: 100%;
-  padding: 1rem;
-  border-radius: 16px;
-  border: none;
-  background: #ededed;
-  color: #222;
-  font-size: 1.1rem;
+  font-size: 14px;
   font-weight: 600;
-  cursor: pointer;
+  outline: none;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  padding-left: 0.5rem;
+}
+
+.modal button[type='submit']{
+  background: var(--background);
+  border: none;
+  color: var(--foreground);
+  width: 100%;
+  font-size: 1rem;
+  padding: 1rem;
+  font-weight: 600;
   margin-top: 1rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  transition: background 0.2s;
+  border-radius: 10px;
 }
 
-.modal button[type='submit']:hover {
-  background: #d1d1d1;
-}
 
-.modal input, .modal label {
-  border-radius: 30px;
-}
-
-.modal button[type='submit'] {
-  border-radius: 40px;
-}
 
 @media only screen and (min-width: 768px) {
+
+  .overlay {
+  top: 64px;
+  height: 95vh;
+}
+
   .modal {
     min-width: auto;
     min-height: auto;
-    padding: 5rem 5rem 0;
+    padding: 3rem 4rem;
   }
 
   .modal input, .modal button[type='submit'], .modal label {
     min-width: 600px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
   }
 
+  .modal label {
+    font-size: 1.35rem;
+    letter-spacing: 0.6px;
+  }
 
-  .modal input, .modal button[type='submit']{
+  .modal button[type='submit'] {
+    font-size: 1.2rem;
+  }
+
+
+  .modal input{
    height: 4rem;
    margin-bottom: 3rem;
+  }
+
+  .modal button[type='submit']{
+   height: 4rem;
+    margin-bottom: 1rem;
   }
 
   .modal h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
+    letter-spacing: 0.6px;
   }
   
+  .modal input, .modal label, .modal button[type='submit']  {
+  border-radius: 40px;
+}
+
+ .modal label {
+  margin-left: 1.5rem;
+}
+
+.modal input {
+  padding-left: 1.5rem;
+}
+
+.modal button[type='submit']{
+  background: rgb(255, 255, 255);
+  backdrop-filter: blur(20px) saturate(150%) brightness(200%) contrast(150%);
+  border: none;
+  cursor: pointer;
+  color: var(--background);
+  width: 100%;
+  font-size: 1.1rem;
+  padding: 0.5rem;
+  font-weight: 600;
+  transition: background 0.3s ease-in, border 0.3s ease-in, box-shadow 0.3s ease-in, color 0.1s ease-in;
+  margin-top: 1rem;
+  border-radius: 40px;
+}
+
+.modal button[type='submit']:hover  {
+  background: rgba(0, 0, 0, 0.479);
+  backdrop-filter: blur(30px) saturate(150%) brightness(110%);
+  box-shadow: inset 0 -3px 25px rgba(255, 255, 255, 0.336);
+  border: none;
+  color: white;
+  transition: background 0.3s ease-out, border 0.3s ease-out, box-shadow 0.1s ease-out, color 0.1s ease-out;
+  letter-spacing: 0.2px;
+}
 }

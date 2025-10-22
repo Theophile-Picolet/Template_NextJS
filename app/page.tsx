@@ -1,6 +1,5 @@
 'use client';
 import styles from './page.module.scss';
-import Link from 'next/link'; 
 import { useState } from 'react';
 import Modal from '@/components/Modal';
 import LoginForm from '@/components/LoginForm';
@@ -20,8 +19,11 @@ export default function Home() {
         <LoginForm />
       </Modal>
       <Modal isOpen={showRegister} onClose={() => setShowRegister(false)}>
-        <RegisterForm />
+        <RegisterForm/>
       </Modal>
+      <div className={styles.searchContainer}>
+        <input type="text" placeholder="Rechercher un film, un acteur..." className={styles.searchInput} />
+      </div>
     </header>
     <main className={styles.main}>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
