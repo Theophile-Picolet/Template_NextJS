@@ -29,6 +29,7 @@ export default function Home() {
       </div>
     </header>
     <main className={styles.main}>
+      <div className={styles.mainContainerMovie}>
       <h2>Les tendances</h2>
       <div className={styles.movieList}>
         <MovieCard
@@ -62,27 +63,8 @@ export default function Home() {
           id={5}
         />
       </div>
+      </div>
     </main>
-    <footer className={styles.footer}>
-  <div className={styles.footerLinks}>
-    <ul>
-      <li>Accueil</li>
-      <li>Connexion</li>
-      <li>S’inscrire</li>
-      <li>A propos</li>
-    </ul>
-    <div className={styles.footerDivider}></div>
-    <ul>
-      <li>Accessibilité</li>
-      <li>Politique de confidentialité</li>
-      <li>Politique de gestion des cookies</li>
-      <li>Contrat d’utilisation</li>
-    </ul>
-  </div>
-  <div className={styles.footerCopyright}>
-    @ Brief2 & Tri-City Kings
-  </div>
-</footer>
     </body>
    
   );
