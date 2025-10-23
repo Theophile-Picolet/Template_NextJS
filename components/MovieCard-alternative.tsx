@@ -1,3 +1,4 @@
+// Alternative pour MovieCard.tsx si vous préférez utiliser le titre
 import Image from 'next/image';
 import styles from './MovieCard.module.scss';
 import Link from 'next/link';
