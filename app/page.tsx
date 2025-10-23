@@ -1,17 +1,48 @@
 'use client';
 import styles from './page.module.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Modal from '@/components/Modal';
 import LoginForm from '@/components/LoginForm';
 import RegisterForm from '@/components/RegisterForm';
 import MovieCard from '@/components/MovieCard';
+import axios from 'axios';
+
 export default function Home() {
   const [showLogin, setShowLogin] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
+  const [movies, setMovies] = useState([]);
+
+  interface movies {
+  id: number;
+  title: string;
+  description: string;
+  director: string;
+  release_date: string;
+  runtime: number;
+  poster_path: string;
+  vote_average: number;
+  vote_count: number;
+}
+
+  useEffect(() => {
+    const fetchMovies = async () => {
+      try {
+        const { data } = await axios.get('http://localhost:1338/api/movies');
+        setMovies(data);
+        console.info(data);
+      } catch (error) {
+        console.error('Error fetching movies:', error);
+      }
+    };
+    
+    fetchMovies();
+  }, []);
+
+  console.info(movies);
 
   return (
-    <body className={styles.body}>
+    <>
        <header className={styles.header}>
       <div className={styles.headerContainer}>
         <button type='button' className={styles.button} onClick={() => setShowLogin(true)}>Se connecter</button>
@@ -63,9 +94,19 @@ export default function Home() {
           id={5}
         />
       </div>
+      <div className={styles.movieList}>
+        {movies.map((movie: movies) => (
+          <MovieCard
+            key={movie.id}
+            title={movie?.title}
+            genre={movie?.director}
+            posterUrl={movie?.poster_path}
+            id={movie?.id}
+          />
+        ))}
+      </div>
       </div>
     </main>
-    </body>
-   
+   </>
   );
 }

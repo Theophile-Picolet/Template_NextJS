@@ -12,7 +12,7 @@ interface MovieCardProps {
 export default function MovieCard(movie: MovieCardProps) {
     return (
         <div className={styles.movieCard}>
-            <Link href={`/film/${movie.id}`}>
+            <Link href={`film/from-title?title=${movie.title}`}>
                 <Image src={movie.posterUrl} alt="Movie Poster" width={300} height={450} />
                 <div className={styles.movieInfo}>
                     <h3>{movie.title}</h3>

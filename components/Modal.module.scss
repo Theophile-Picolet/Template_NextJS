@@ -10,6 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10;
 }
 
 .modal {
@@ -24,11 +25,9 @@
   min-width: object-fit;
   max-width: 90vw;
   color: #ededed;
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 1;
 }
 
 
