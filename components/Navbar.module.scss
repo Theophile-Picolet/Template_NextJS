@@ -1,6 +1,6 @@
+
 .navbar {
   background: #e3e3e10c;
-  -webkit-backdrop-filter: blur(100px); /* Flou pour Safari */
   position: fixed;
   top: 0;
   left: 0;
@@ -20,17 +20,102 @@
   margin: 0 auto;
   letter-spacing: 0.6px;
   font-weight: 600;
-  backdrop-filter: blur(11px) saturate(150%);
-   padding: 0.5rem 1rem;
+  backdrop-filter: blur(11px) saturate(110%);
+  padding: 0.5rem;
+  
+  .logo {
+    font-size: 14px;
+  }
 }
 
 .navList {
   display: flex;
   flex-direction: row;
+  gap: 1rem;
+  margin: 0 auto;
+  list-style: none;
+}
+
+
+ .navList li {
+  font-size: 14px;
+  font-weight: 700;
+  text-shadow: -1px 1px 5px black;
+  letter-spacing: 1px;
+  color: white;
+  position: relative;
+  }
+
+
+.navbar li a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+  }
+
+
+
+
+
+@media (min-width: 768px) {
+
+  .menu {
+    padding: 0.5rem;
+    .logo {
+    font-size: 16px;
+  }
+  }
+
+  .navList {
   width: 1200px;
+  display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
   margin: 0 auto;
   list-style: none;
+  gap: 0;
+}
+
+ .navbar li {
+  font-weight: 800;
+  font-size: 16px;
+}
+
+  .navbar li a {
+  padding: 1rem 2rem;
+}
+
+.navbar li a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 2rem;
+  bottom: 8px;
+  width: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.897);
+  border-radius: 50px;
+  opacity: 0;
+  transition: width 0.5s cubic-bezier(0.4,0,0.2,1), opacity 1s ease;
+}
+
+
+.navbar li a:hover::after,
+.navbar li a:focus::after {
+  width: calc(100% - 4rem);
+  opacity: 1;
+}
+
+  .avatar {
+    width: auto;
+    height: auto;
+    margin-right: 0.5rem;
+  }
 }
 
 

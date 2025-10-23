@@ -5,7 +5,7 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div className={styles.menu}>
-      <li><Link href="/">CINEVERSE</Link></li>
+      <li className={styles.logo}><Link href="/">CINEVERSE</Link></li>
       <ul className={styles.navList}>
         <li><Link href="/film">Films</Link></li>
         <li>
@@ -13,7 +13,7 @@ export default function Navbar() {
         </li>
         <li><Link href="/director">Réalisateurs</Link></li>
       </ul>
-      <img src="/images/avatar.webp" alt="Connexion" />
+      <img src="/images/avatar.webp" className={styles.avatar} alt="Connexion" />
     </div>
     </nav>
   );

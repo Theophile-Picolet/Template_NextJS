@@ -1,0 +1,117 @@
+
+.filmPage {
+	min-height: 100vh;
+	width: 100vw;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.filmHeader {
+	margin-top: 2rem;
+	color: #fff;
+	text-align: left;
+	width: 100%;
+	max-width: 900px;
+	padding-left: 2rem;
+	text-shadow: 0 2px 10px #000;
+}
+
+.title {
+	font-size: 2.2rem;
+	font-weight: 700;
+	margin-bottom: 0.5rem;
+}
+
+.meta {
+	font-size: 1.1rem;
+	margin-bottom: 0.5rem;
+	color: #e0e0e0;
+}
+
+.details {
+	font-size: 1rem;
+	color: #e0e0e0;
+	display: flex;
+	gap: 2rem;
+	margin-bottom: 1.5rem;
+}
+
+.synopsisBox {
+	background: linear-gradient(120deg, #b8c6db99 0%, #6c7a8999 100%);
+	color: #fff;
+	border-radius: 20px;
+	box-shadow: 0 4px 32px #000a, 0 1px 4px #fff2;
+	padding: 2rem 2.5rem;
+	max-width: 800px;
+	margin: 2rem auto 2rem auto;
+	font-size: 1.1rem;
+	backdrop-filter: blur(8px) saturate(120%);
+}
+
+.synopsisBox h2 {
+	font-size: 1.3rem;
+	font-weight: 700;
+	margin-bottom: 1rem;
+}
+
+.actorsSection {
+	width: 100%;
+	max-width: 900px;
+	margin: 2rem auto 0 auto;
+	color: #fff;
+}
+
+.actorsSection h3 {
+	font-size: 1.1rem;
+	font-weight: 700;
+	margin-bottom: 1rem;
+	margin-left: 0.5rem;
+}
+
+.actorsList {
+	display: flex;
+	flex-direction: row;
+	gap: 1.5rem;
+	overflow-x: auto;
+	padding-bottom: 1rem;
+}
+
+.actorCard {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: #222c33cc;
+	border-radius: 16px;
+	box-shadow: 0 2px 10px #0007;
+	padding: 0.7rem 1.2rem;
+	min-width: 120px;
+}
+
+.actorPhoto {
+	border-radius: 50%;
+	width: 90px;
+	height: 90px;
+	object-fit: cover;
+	margin-bottom: 0.5rem;
+	border: 2px solid #fff3;
+}
+
+.actorName {
+	font-size: 1rem;
+	font-weight: 600;
+	margin-bottom: 0.2rem;
+	color: #fff;
+	text-align: center;
+}
+
+.actorRole {
+	font-size: 0.95rem;
+	color: #e0e0e0;
+	text-align: center;
+}
