@@ -115,3 +115,19 @@
 	color: #e0e0e0;
 	text-align: center;
 }
+
+.movieList {
+	display: flex;
+	flex-direction: row;
+	gap: 2rem;
+	margin: 3rem auto;
+	max-width: 1200px;
+	min-width: 0;
+	overflow-x: auto;
+	overflow-y: visible;
+	scroll-snap-type: x mandatory;
+	-webkit-overflow-scrolling: touch;
+	margin-left: 1rem;
+	padding-bottom: 2rem;
+}
+
