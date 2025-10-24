@@ -32,7 +32,7 @@ export default function Home() {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const { data } = await axios.get("http://localhost:1337/api/movies");
+        const { data } = await axios.get("http://localhost:1338/api/movies");
         console.log("les data recu", data);
         setMovies(data);
         console.info(data);
