@@ -1,7 +1,7 @@
-'use client';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
+"use client";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 
 interface Movie {
   id: number;
@@ -25,23 +25,23 @@ export default function FilmPage() {
   useEffect(() => {
     const fetchMovie = async () => {
       if (!movieId) return;
-      
+
       try {
         setLoading(true);
         setError(null);
-        
+
         // Récupérer le film par ID
-        const { data } = await axios.get(`http://localhost:1338/api/movies/${movieId}`);
+        const { data } = await axios.get(`http://localhost:1337/api/movies/${movieId}`);
         setMovie(data);
-        console.info('Movie data:', data);
+        console.info("Movie data:", data);
       } catch (error) {
-        console.error('Error fetching movie:', error);
-        setError('Erreur lors du chargement du film');
+        console.error("Error fetching movie:", error);
+        setError("Erreur lors du chargement du film");
       } finally {
         setLoading(false);
       }
     };
-    
+
     fetchMovie();
   }, [movieId]);
 
@@ -64,10 +64,10 @@ export default function FilmPage() {
       <p>Réalisateur: {movie.director}</p>
       <p>Date de sortie: {movie.release_date}</p>
       <p>Durée: {movie.runtime} minutes</p>
-      <p>Note: {movie.vote_average}/10 ({movie.vote_count} votes)</p>
-      {movie.poster_path && (
-        <img src={movie.poster_path} alt={movie.title} style={{ maxWidth: '300px' }} />
-      )}
+      <p>
+        Note: {movie.vote_average}/10 ({movie.vote_count} votes)
+      </p>
+      {movie.poster_path && <img src={movie.poster_path} alt={movie.title} style={{ maxWidth: "300px" }} />}
     </div>
   );
 }

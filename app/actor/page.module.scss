@@ -148,6 +148,31 @@
   }
 }
 
+.containerActor{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.actorCard{
+  color: black;
+  height: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 0;
+  flex: 0 0 auto;
+}
+
+.actorCard>img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 // Responsive design
 @media (max-width: 768px) {
   .actorPage {
