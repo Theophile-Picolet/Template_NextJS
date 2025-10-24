@@ -7,12 +7,16 @@ import LoginForm from "@/components/LoginForm";
 import RegisterForm from "@/components/RegisterForm";
 import MovieCard from "@/components/MovieCard";
 import axios from "axios";
+import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 export default function Home() {
   const [showLogin, setShowLogin] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
   const [movies, setMovies] = useState([]);
-
+  const searchParams = useSearchParams();
+  const [searchValue, setSearchValue] = useState(searchParams.get("title") || "");
+  const router = useRouter();
   interface movies {
     id: number;
     title: string;
@@ -42,6 +46,20 @@ export default function Home() {
 
   console.info(movies);
 
+  const handleSearchClick = () => {
+    if (searchValue.trim()) {
+      const params = new URLSearchParams(searchParams);
+      params.set("title", searchValue.trim());
+      router.push(`/film/from-title?${params.toString()}`);
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleSearchClick();
+    }
+  };
+
   return (
     <>
       <header className={styles.header}>
@@ -59,9 +77,27 @@ export default function Home() {
         <Modal isOpen={showRegister} onClose={() => setShowRegister(false)}>
           <RegisterForm />
         </Modal>
+        {/* <div className={styles.searchContainer}>
+          <button type="button" onClick={(e) => handleSearch(e.target.value)}>
+            <Image src="/images/search.webp" className={styles.searchIcon} alt="recherche" width={40} height={40} />
+
+            <Image src="/images/search.webp" className={styles.searchIcon} alt="recherche" width={40} height={40} />
+            <input type="text" placeholder="Rechercher un film, un acteur..." className={styles.searchInput} />
+          </button>
+        </div> */}
+
         <div className={styles.searchContainer}>
-          <Image src="/images/search.webp" className={styles.searchIcon} alt="recherche" width={40} height={40} />
-          <input type="text" placeholder="Rechercher un film, un acteur..." className={styles.searchInput} />
+          <input
+            type="text"
+            placeholder="Rechercher un film, un acteur..."
+            className={styles.searchInput}
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+            onKeyDown={handleKeyDown}
+          />
+          <button onClick={handleSearchClick} className={styles.searchButton}>
+            <Image src="/images/search.webp" alt="recherche" width={30} height={30} />
+          </button>
         </div>
       </header>
       <main className={styles.main}>
