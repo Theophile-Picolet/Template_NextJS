@@ -22,8 +22,7 @@ export default function FilmPage({ title }: { title: string }) {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        // const { data } = await axios.get(`http://localhost:1337/api/movies/from-title?title=${title}`);
-        const { data } = await axios.get(`http://localhost:1337/api/movies`);
+        const { data } = await axios.get(`http://localhost:1338/api/movies`);
         setMovie(data);
         console.info(data);
       } catch (error) {
@@ -36,23 +35,11 @@ export default function FilmPage({ title }: { title: string }) {
 
   console.info(movie);
 
-  /*  const  {data} = await axios.get(`http://localhost:1338/api/movies/from-title?title=${params.title}`) */
-  /*   const movie = data;
-  console.info (movie); */
-
   if (!movie) {
     return <div>Movie not found lor</div>;
   }
 
   return (
-    // <div>
-    //   <h1>{movie.title}</h1>
-    //   <p>{movie.description}</p>
-    //   <p>Director: {movie.director}</p>
-    //   <p>Release Date: {movie.release_date}</p>
-    //   <p>Runtime: {movie.runtime} minutes</p>
-    //   <img src={movie.poster_path} alt={movie.title} />
-    // </div>
     <>
       <div className={styles.movieList}>
         {movie.map((movie: movies) => (

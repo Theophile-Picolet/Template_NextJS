@@ -9,7 +9,7 @@
 
 /* Hero Section */
 .heroSection {
-  height: 100vh;
+  height: 150vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -98,7 +98,7 @@
 .synopsisCard {
   background: #c4c4c425;
   position: absolute;
-  top: 60%;
+  top: 0%;
   left: 50%;
   transform: translate(-50%, -50%);
   overflow: hidden;
@@ -137,7 +137,7 @@
   left: 0;
   right: 0;
   width: 100%;
-  background-color: #0a0a0a;
+  background-color: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -146,7 +146,7 @@
 }
 
 .sectionTitle {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   margin: 0 0 2.5rem 0;
   color: #fff;
@@ -193,17 +193,15 @@
 
 .actorPhoto {
   width: 120px;
-  height: 120px;
+  height: 150px;
   border-radius: 3px;
   overflow: hidden;
   margin: 0 auto 1rem;
-  border: 3px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .actorPhoto:hover {
   transform: scale(1.05);
-  border-color: #c4c4c4;
 }
 
 .actorPhoto img {
@@ -230,7 +228,7 @@
 /* Related Section */
 .relatedSection {
   position: absolute;
-  top: calc(100vh + 200px);
+  top: calc(100vh + 300px + 2rem);
   left: 0;
   right: 0;
   width: 100%;
@@ -239,7 +237,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 2;
+  z-index: 1;
+}
+
+.relatedSection .sectionTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 2.5rem 0;
+  color: #fff;
+  text-align: left;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 1rem;
 }
 
 .relatedMovies {
@@ -313,7 +322,7 @@
   
   .actorPhoto {
     width: 100px;
-    height: 100px;
+    height: 125px;
   }
   
   .actorsList {
@@ -343,7 +352,7 @@
   
   .actorPhoto {
     width: 80px;
-    height: 80px;
+    height: 100px;
   }
 
   .heroContent {

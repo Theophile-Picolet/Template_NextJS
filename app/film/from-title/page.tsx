@@ -17,7 +17,14 @@ interface Movie {
   vote_count: number;
   movie_genres?: { genre_name: string }[];
   actors?: string[];
-  movies?: { id: number; actor?: { name: string }; character_name?: string }[];
+  movies?: { 
+    id: number; 
+    actor?: { 
+      name: string;
+      profile_path?: string;
+    }; 
+    character_name?: string;
+  }[];
 }
 
 export default function FilmByTitlePage() {
@@ -39,13 +46,14 @@ export default function FilmByTitlePage() {
         // Récupérer le film par titre
         // const { data } = await axios.get(`http://localhost:1338/api/movies/from-title?title=${encodeURIComponent(title)}`);
         const { data } = await axios.get(
-          `http://localhost:1337/api/movies/from-title?title=${encodeURIComponent(title)}`
+          `http://localhost:1338/api/movies/from-title?title=${encodeURIComponent(title)}`
         );
         /* const actorMovies = await axios.get(`http://localhost:1338/api/movie-actors/movie/${encodeURIComponent(id)}`); */
         setMovie(data);
         setGenre(data.movie_genres?.[0]?.genre_name || null);
         setActors(data.actors || null);
-        console.info("Movie data:", movie);
+        console.info("Movie data:", data);
+        console.info("Actors from movies:", data.movies);
         console.info("Genre:", genre);
         /*         console.info('Actors:', actorMovies);
          */
@@ -111,12 +119,16 @@ export default function FilmByTitlePage() {
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>Les Acteurs</h2>
           <div className={styles.actorsList}>
-            {movie.movies?.slice(0, 12).map((m) => (
+            {movie.movies && movie.movies.length > 0 ? (
+              movie.movies.slice(0, 12).map((m) => (
               <div key={m.id} className={styles.actorCard}>
                 <div className={styles.actorPhoto}>
                   <img 
-                    src="/images/placeholder-actor.jpg" 
+                    src={m.actor?.profile_path || '/images/placeholder-actor.jpg'} 
                     alt={m.actor?.name || 'Acteur'}
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = '/images/placeholder-actor.jpg';
+                    }}
                   />
                 </div>
                 <div className={styles.actorInfo}>
@@ -124,7 +136,10 @@ export default function FilmByTitlePage() {
                   <div className={styles.characterName}>{m.character_name}</div>
                 </div>
               </div>
-            ))}
+              ))
+            ) : (
+              <div className={styles.noActors}>Aucun acteur disponible</div>
+            )}
           </div>
         </div>
       </div>

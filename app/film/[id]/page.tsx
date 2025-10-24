@@ -17,7 +17,14 @@ interface Movie {
   vote_average: number;
   vote_count: number;
   movie_genres?: { genre_name: string }[];
-  movies?: { id: number; actor?: { name: string }; character_name?: string }[];
+  movies?: { 
+    id: number; 
+    actor?: { 
+      name: string;
+      profile_path?: string;
+    }; 
+    character_name?: string;
+  }[];
 }
 
 export default function FilmPage() {
@@ -97,12 +104,16 @@ export default function FilmPage() {
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>Les Acteurs</h2>
           <div className={styles.actorsList}>
-            {movie.movies?.slice(0, 12).map((m) => (
+            {movie.movies && movie.movies.length > 0 ? (
+              movie.movies.slice(0, 12).map((m) => (
               <div key={m.id} className={styles.actorCard}>
                 <div className={styles.actorPhoto}>
                   <img 
-                    src="/images/placeholder-actor.jpg" 
+                    src={m.actor?.profile_path || '/images/placeholder-actor.jpg'} 
                     alt={m.actor?.name || 'Acteur'}
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = '/images/placeholder-actor.jpg';
+                    }}
                   />
                 </div>
                 <div className={styles.actorInfo}>
@@ -110,7 +121,10 @@ export default function FilmPage() {
                   <div className={styles.characterName}>{m.character_name}</div>
                 </div>
               </div>
-            ))}
+              ))
+            ) : (
+              <div className={styles.noActors}>Aucun acteur disponible</div>
+            )}
           </div>
         </div>
       </div>
@@ -124,17 +138,6 @@ export default function FilmPage() {
           </div>
         </div>
       </div>
-    <div>
-      <h1>{movie.title}</h1>
-      <p>{movie.description}</p>
-      <p>Réalisateur: {movie.director}</p>
-      <p>Date de sortie: {movie.release_date}</p>
-      <p>Durée: {movie.runtime} minutes</p>
-      <p>
-        Note: {movie.vote_average}/10 ({movie.vote_count} votes)
-      </p>
-      {movie.poster_path && <img src={movie.poster_path} alt={movie.title} style={{ maxWidth: "300px" }} />}
-
     </div>
   );
 }
