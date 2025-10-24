@@ -1,0 +1,352 @@
+/* Styles pour la page de détail du film */
+.filmPage {
+  min-height: 150vh;
+  background-color: #0a0a0a;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  position: relative;
+}
+
+/* Hero Section */
+.heroSection {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.7) 70%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.movieInfo {
+  max-width: 600px;
+  text-align: left;
+}
+
+.movieTitle {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin: 0 0 1rem 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.movieGenres {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 1.5rem;
+}
+
+.movieDetails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.duration,
+.releaseDate {
+  color: #fff;
+  font-weight: 500;
+}
+
+.director {
+  color: #fff;
+  font-weight: 600;
+}
+
+.role {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* Container commun */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Synopsis Card intégrée dans le hero avec style de la modale */
+.synopsisCard {
+  background: #c4c4c425;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 2px 30px rgb(0, 0, 0), inset 0 2px 5px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.041);
+  backdrop-filter: blur(10px) saturate(120%);
+  padding: 2.5rem;
+  max-width: 1200px;
+  width: calc(100% - 4rem);
+  color: #ededed;
+  text-align: left;
+  z-index: 5;
+}
+
+.synopsisTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  color: #ededed;
+  text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.6);
+}
+
+.synopsisText {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #ededed;
+  margin: 0;
+  text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Actors Section */
+.actorsSection {
+  position: absolute;
+  top: 100vh;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  z-index: 3;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0 0 2.5rem 0;
+  color: #fff;
+  text-align: left;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+.actorsList {
+  display: flex;
+  gap: 2rem;
+  max-width: 1200px;
+  width: calc(100% - 2rem);
+  overflow-x: auto;
+  padding: 0 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.actorsList::-webkit-scrollbar {
+  height: 8px;
+}
+
+.actorsList::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.actorsList::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.actorsList::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.actorCard {
+  text-align: center;
+  flex: 0 0 140px;
+  min-width: 140px;
+}
+
+.actorPhoto {
+  width: 120px;
+  height: 120px;
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 0 auto 1rem;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.actorPhoto:hover {
+  transform: scale(1.05);
+  border-color: #c4c4c4;
+}
+
+.actorPhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.actorInfo {
+  color: #fff;
+}
+
+.actorName {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+}
+
+.characterName {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+/* Related Section */
+.relatedSection {
+  position: absolute;
+  top: calc(100vh + 200px);
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 4rem 0;
+  background-color: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.relatedMovies {
+  /* À implémenter selon vos besoins */
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-style: italic;
+  max-width: 1200px;
+  width: calc(100% - 2rem);
+}
+
+.relatedMovies::before {
+  content: "Films similaires à venir...";
+}
+
+/* Loading et Error states */
+.loading,
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.2rem;
+  background-color: #0a0a0a;
+  color: white;
+}
+
+.error {
+  color: #dddddd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .heroContent {
+    padding: 0 1rem 2rem;
+  }
+  
+  .movieTitle {
+    font-size: 2.5rem;
+  }
+  
+  .movieDetails {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .synopsisCard {
+    padding: 2rem;
+    width: calc(100% - 2rem);
+    margin: 0 1rem;
+    transform: translate(-50%, -50%);
+  }
+  
+  .actorsList {
+    width: calc(100% - 2rem);
+    padding: 0 1rem;
+  }
+  
+  .actorCard {
+    flex: 0 0 100px;
+    min-width: 100px;
+  }
+  
+  .actorPhoto {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .actorsList {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .actorPhoto {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .movieTitle {
+    font-size: 2rem;
+  }
+  
+  .synopsisCard {
+    padding: 1.5rem;
+  }
+  
+  .actorCard {
+    flex: 0 0 80px;
+    min-width: 80px;
+  }
+  
+  .actorPhoto {
+    width: 80px;
+    height: 80px;
+  }
+
+  .heroContent {
+    padding: 0 1rem 2rem;
+  }
+}
