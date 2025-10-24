@@ -1,7 +1,6 @@
 "use client";
 import axios from "axios";
-import { title } from "process";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./page.module.scss";
 import MovieCard from "@/components/MovieCard";
 
@@ -24,7 +23,7 @@ export default function FilmPage({ title }: { title: string }) {
     const fetchMovies = async () => {
       try {
         // const { data } = await axios.get(`http://localhost:1337/api/movies/from-title?title=${title}`);
-        const { data } = await axios.get(`http://localhost:1338/api/movies`);
+        const { data } = await axios.get(`http://localhost:1337/api/movies`);
         setMovie(data);
         console.info(data);
       } catch (error) {

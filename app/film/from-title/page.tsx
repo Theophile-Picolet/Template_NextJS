@@ -36,7 +36,7 @@ export default function FilmByTitlePage() {
         // Récupérer le film par titre
         // const { data } = await axios.get(`http://localhost:1338/api/movies/from-title?title=${encodeURIComponent(title)}`);
         const { data } = await axios.get(
-          `http://localhost:1338/api/movies/from-title?title=${encodeURIComponent(title)}`
+          `http://localhost:1337/api/movies/from-title?title=${encodeURIComponent(title)}`
         );
         /* const actorMovies = await axios.get(`http://localhost:1338/api/movie-actors/movie/${encodeURIComponent(id)}`); */
         setMovie(data);
